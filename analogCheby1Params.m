@@ -16,8 +16,9 @@ function [num, den] = analogCheby1Params(Wp, Ws, Rp, Rs)
 
     Ncalc = acosh(1/k1)/acosh(1/k);
     
-    fprintf("fp = %0.4f Hz, fs = %0.4f Hz, Rp = %0.0f dB, Rs = %0.0f dB\nN = %d, cutoff = %0.4f Hz\n",fp, fs, Rp, Rs, N, fn);
+    fprintf("Wp = %0.4f rad/s or %0.4f Hz, Rp = %0.2f dB,\nWs = %0.4f rad/s or %0.4f Hz, Rs = %0.2f dB\n", Wp, fp, Rp, Ws, fs, Rs);
+    fprintf("\nN = %d, cutoff = %0.4f rad/s or %0.4f Hz\n", N, Wn, fn);
     fprintf("chi2 = %0.4f, A2 = %0.4f\nchi = %0.4f, A = %0.4f\n",chi2, A2, chi, A);
     fprintf("k = %0.4f, k1 = %0.4f\n1/k = %0.4f, 1/k1 = %0.4f\nNcalc = %0.4f\n", k, k1, 1/k, 1/k1, Ncalc);
 
-    [num,den] = cheby1(N,Rp,fn,'s');
+    [num,den] = cheby1(N,Rp,Wn,'s');

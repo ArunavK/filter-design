@@ -15,7 +15,10 @@ function [num, den] = analogButterworthParams(Wp, Ws, Rp, Rs)
     %*************************IMPORTANT********************************
     %by default Wn matches stopband attenuation
     %Uncomment the below line in order to match the passband attenuation
-    Wn = Wc1; fprintf("\nUSING PASSBAND SPECS FOR CUTOFF\n");
+    
+    %Wn = Wc1; fprintf("\nUSING PASSBAND SPECS FOR CUTOFF\n");
+    
+    %******************************************************************
     fn = Wn/(2*pi);
     
     k = Wp/Ws; %transition ratio or selectivity parameter
@@ -23,8 +26,9 @@ function [num, den] = analogButterworthParams(Wp, Ws, Rp, Rs)
 
     Ncalc = log10(1/k1)/log10(1/k) ;
     
-    fprintf("fp = %0.4f Hz, fs = %0.4f Hz, Rp = %0.0f dB, Rs = %0.0f dB\n\nN = %d, cutoff = %0.4f rad/s or %0.4f Hz\n",fp, fs, Rp, Rs, N, Wn, fn);
-    fprintf("chi2 = %0.4f, A2 = %0.4f\nchi = %0.4f, A = %0.4f\n\n",chi2, A2, chi, A);
+    fprintf("Wp = %0.4f rad/s or %0.4f Hz, Rp = %0.2f dB,\nWs = %0.4f rad/s or %0.4f Hz, Rs = %0.2f dB\n", Wp, fp, Rp, Ws, fs, Rs);
+    fprintf("\nN = %d, cutoff = %0.4f rad/s or %0.4f Hz\n", N, Wn, fn);
+    fprintf("chi2 = %0.4f, A2 = %0.4f\nchi = %0.4f, A = %0.4f\n",chi2, A2, chi, A);
     fprintf("k = %0.4f, k1 = %0.4f\n1/k = %0.4f, 1/k1 = %0.4f\nNcalc = %0.4f\n", k, k1, 1/k, 1/k1, Ncalc);
     
     [num,den] = butter(N, Wn,'s');
