@@ -11,12 +11,12 @@ Rs = 22; % Stopband attenuation
 
 %geometric symmetry
 if(Wp1c*Wp2c > Ws1c*Ws2c)
-    Wp1c = Ws1c*Ws2c/Wp2c;
-%   Ws1_cap = Wp1_cap*Wp2_cap/Ws2_cap;    
+%     Wp1c = Ws1c*Ws2c/Wp2c;
+    Ws1c = Wp1c*Wp2c/Ws2c;    
 end
 if (Wp1c*Wp2c < Ws1c*Ws2c)
     Wp2c = Ws1c*Ws2c/Wp1c;
-%   Ws2_cap = Wp1_cap*Wp2_cap/Ws1_cap;
+%     Ws2c = Wp1c * Wp2c / Ws1c;
 end
 
 %parameters of desired fiter

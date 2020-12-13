@@ -9,14 +9,14 @@ function [num, den] = analogButterworthParams(Wp, Ws, Rp, Rs)
     chi = sqrt(chi2);
     A = sqrt(A2);
     
-    Wc1 = Wp/(chi^(1/N));
-    Wc2 = Ws/((A2 - 1)^(1/(2*N)));
+    Wc1 = Wp/(chi^(1/N)); %using passband specs
+    Wc2 = Ws/((A2 - 1)^(1/(2*N))); %stopband specs
     
     %*************************IMPORTANT********************************
     %by default Wn matches stopband attenuation
     %Uncomment the below line in order to match the passband attenuation
     
-    %Wn = Wc1; fprintf("\nUSING PASSBAND SPECS FOR CUTOFF\n");
+%     Wn = Wc1; fprintf("\nUSING PASSBAND SPECS FOR CUTOFF\n");
     
     %******************************************************************
     fn = Wn/(2*pi);
