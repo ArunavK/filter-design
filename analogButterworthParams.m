@@ -16,7 +16,7 @@ function [num, den] = analogButterworthParams(Wp, Ws, Rp, Rs)
     %by default Wn matches stopband attenuation
     %Uncomment the below line in order to match the passband attenuation
     
-%     Wn = Wc1; fprintf("\nUSING PASSBAND SPECS FOR CUTOFF\n");
+    Wn = Wc1; fprintf("\nUSING PASSBAND SPECS FOR CUTOFF\n");
     
     %******************************************************************
     fn = Wn/(2*pi);

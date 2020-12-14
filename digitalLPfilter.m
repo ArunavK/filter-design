@@ -45,7 +45,7 @@ fprintf("\nStep 5: Convert analog filter to digital\n");
 numd(abs(numd) < 1e-6) = 0;
 dend(abs(dend) < 1e-6) = 0;
 fprintf("CAUTION: Use z in place of s, now that you're in the digital domain\n");
-Gd = tf(numd, dend, 0.5);
+Gd = filt(numd, dend, 0.5);
 display(Gd);
 
 [z, p, k] = tf2zpk(numd, dend);

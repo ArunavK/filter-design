@@ -2,11 +2,11 @@ clc;
 clear;
 
 tic;
-Fs = 2000;
-fp = 700;
-fs = 500;
-Rp = 1;
-Rs = 32;
+Fs = 8000;
+fp = 3000;
+fs = 1000;
+Rp = 0.5;
+Rs = 25;
 
 %normalising the frequencies
 wp = 2*pi*fp/Fs;
@@ -49,7 +49,7 @@ fprintf("\nStep 5: Convert analog filter specs to digital\n");
 fprintf("CAUTION: Use z in place of s, now that you're in the digital domain\n");
 numd(abs(numd) < 1e-6) = 0;
 dend(abs(dend) < 1e-6) = 0;
-Gd = tf(numd, dend, 0.5);
+Gd = filt(numd, dend, 0.5);
 display(Gd);
 
 [z, p, k] = tf2zpk(numd, dend);
