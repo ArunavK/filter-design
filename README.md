@@ -22,5 +22,5 @@ All remaining files were prepared to help me with the course and can be deleted 
 
 The output of all these scripts and function have been kept extremely verbose to help me in solving problems quickly.
 
-Regards
+Regards</br>
 Arunabh Kashyap
