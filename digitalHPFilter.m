@@ -1,12 +1,14 @@
+%Created by Arunabh Kashyap
+
 clc;
 clear;
 
 tic;
-Fs = 8000;
-fp = 3000;
-fs = 1000;
-Rp = 0.5;
-Rs = 25;
+Fs = 3200;
+fp = 1100;
+fs = 700;
+Rp = 3;
+Rs = 50;
 
 %normalising the frequencies
 wp = 2*pi*fp/Fs;

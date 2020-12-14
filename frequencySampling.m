@@ -1,4 +1,5 @@
 function [h] = frequencySampling(H, N)
+    %Created by Arunabh Kashyap
     tic;
     H = H';
     n = 0:N-1;

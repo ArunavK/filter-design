@@ -1,5 +1,6 @@
 function [num, den] = analogButterworthParams(Wp, Ws, Rp, Rs)
-
+    %Created by Arunabh Kashyap
+    
     fp = Wp/(2*pi); %passband frequency in Hz
     fs = Ws/(2*pi); %stopband frequency in Hz
     [N, Wn] = buttord(Wp, Ws, Rp, Rs, 's'); %order
@@ -16,7 +17,7 @@ function [num, den] = analogButterworthParams(Wp, Ws, Rp, Rs)
     %by default Wn matches stopband attenuation
     %Uncomment the below line in order to match the passband attenuation
     
-    Wn = Wc1; fprintf("\nUSING PASSBAND SPECS FOR CUTOFF\n");
+%     Wn = Wc1; fprintf("\nUSING PASSBAND SPECS FOR CUTOFF\n");
     
     %******************************************************************
     fn = Wn/(2*pi);

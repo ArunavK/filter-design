@@ -1,5 +1,6 @@
 function [num, den] = analogCheby1Params(Wp, Ws, Rp, Rs)
-
+    %Created by Arunabh Kashyap
+    
     fp = Wp/(2*pi);
     fs = Ws/(2*pi);
     [N, Wn] = cheb1ord(Wp, Ws, Rp, Rs, 's');

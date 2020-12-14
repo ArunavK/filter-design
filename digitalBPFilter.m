@@ -1,14 +1,16 @@
+%Created by Arunabh Kashyap
+
 clc;
 clear;
 
 tic;
 Rp = 3;
-Rs = 15;
-fp1 = 250;
-fp2 = 500;
-fs1 = 70;
-fs2 = 680;
-Fs = 1500;
+Rs = 14;
+fp1 = 2700;
+fp2 = 4400;
+fs1 = 1000;
+fs2 = 6060;
+Fs = 14000;
 % wp1 = 0.45*pi;
 % wp2 = 0.65*pi;
 % ws1 = 0.3*pi;
@@ -23,6 +25,7 @@ ws2 = 2*pi*fs2/Fs;
 fprintf("\nStep 1: Prewarping\n");
 [Wpc1, Wsc1] = prewarp(wp1, ws1);
 [Wpc2, Wsc2] = prewarp(wp2, ws2);
+BW = Wpc2 - Wpc1
 fprintf("====================================================================");
 
 %Step 2: LP prototype specs
@@ -33,12 +36,12 @@ if(Wpc1*Wpc2 - Wsc1*Wsc2 > 1e-5)
 %     Wp1c = Ws1c*Ws2c/Wp2c;
     fprintf("Wpc1*Wpc2 > Wsc1*Wsc2\nAdjusting Wsc1...\n");
     Wsc1 = Wpc1*Wpc2 / Wsc2;
-    fprintf("new Wsc1 = %0.4f rad/s\n", Wsc1);
+    fprintf("new Wsc1 = %0.4f rad/s or %0.4f Hz\n", Wsc1, Wsc1/(2*pi));
 elseif (1e-5 < Wsc1*Wsc2 - Wpc1*Wpc2)
 %     Wp2c = Ws1c*Ws2c/Wp1c;
     fprintf("Wpc1*Wpc2 < Wsc1*Wsc2\nAdjusting Wsc2...\n");
     Wsc2 = Wpc1*Wpc2/Wsc1;
-    fprintf("new Wsc2 = %0.4f rad/s\n", Wsc2);
+    fprintf("new Wsc2 = %0.4f rad/s or %0.4f Hz\n", Wsc2, Wsc2/(2*pi));
 else
     fprintf("Wpc1*Wpc2 = Wsc1*Wsc2, No adjustment required.\n");
 end
