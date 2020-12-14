@@ -52,6 +52,14 @@ dend(abs(dend) < 1e-6) = 0;
 Gd = tf(numd, dend, 0.5);
 display(Gd);
 
+[z, p, k] = tf2zpk(numd, dend);
+fprintf("Zeros:\n");
+disp(z);
+fprintf("Poles:\n");
+disp(p);
+fprintf("Gain:\n");
+disp(k);
+
 fprintf("\n*********************************\n");
 toc;
 fprintf("*********************************\n");

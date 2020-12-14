@@ -3,12 +3,12 @@ clear;
 
 tic;
 Rp = 3;
-Rs = 15;
-fp1 = 200;
-fp2 = 300;
-fs1 = 50;
-fs2 = 450;
-Fs = 1000;
+Rs = 14;
+fp1 = 2940;
+fp2 = 4060;
+fs1 = 1200;
+fs2 = 5600;
+Fs = 14000;
 % wp1 = 0.45*pi;
 % wp2 = 0.65*pi;
 % ws1 = 0.3*pi;
@@ -78,9 +78,35 @@ fprintf("\nStep 5: Convert analog filter specs to digital\n");
 fprintf("CAUTION: Use z in place of s\n");
 numd(abs(numd) < 1e-6) = 0;
 dend(abs(dend) < 1e-6) = 0;
-Gd = tf(numd, dend, 0.5);
+Gd = tf(numd, dend, 2);
 display(Gd);
 
+[z, p, k] = tf2zpk(numd, dend);
+fprintf("Zeros:\n");
+disp(z);
+fprintf("Poles:\n");
+disp(p);
+fprintf("Gain:\n");
+disp(k);
+%APPROACH 2
+% fprintf("====================================================================\n");
+% fprintf("====================================================================\n");
+% fprintf("\nAPPROACH 2\n");
+% fprintf("\nStep 4: Convert analog LP Prototype to Digital LP prototype\n");
+% [numd1, dend1] = bilinear(B, A, 0.5);
+% dend1(abs(dend1) < 1e-6) = 0;
+% numd1(abs(numd1) < 1e-6) = 0;
+% Glp = tf(numd1, dend1);
+% display(Glp);
+% 
+% fprintf("====================================================================");
+% fprintf("\nStep 5: Convert digital LP prototype to desired BP\n");
+% [~, Wn] = buttord(Wp, Ws, Rp, Rs, 's');
+% [numd2, dend2] = iirlp2bp(numd1, dend1, Wn/pi, [wp1 wp2]/pi);
+% numd2(abs(numd2) < 1e-6) = 0;
+% dend2(abs(dend2) < 1e-6) = 0;
+% Gd = tf(numd2, dend2, 2);
+% display(Gd);
 
 fprintf("\n*********************************\n");
 toc;
