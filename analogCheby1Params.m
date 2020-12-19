@@ -1,11 +1,8 @@
 function [num, den] = analogCheby1Params(Wp, Ws, Rp, Rs)
     %Created by Arunabh Kashyap
     
-    fp = Wp/(2*pi);
-    fs = Ws/(2*pi);
     [N, Wn] = cheb1ord(Wp, Ws, Rp, Rs, 's');
 
-    fn = Wn/(2*pi);
 
     chi2 = (1/(10^(-Rp/10))) - 1; %using negative sign to ensure attenuation
     A2 = 1/(10^(-Rs/10));
@@ -17,8 +14,8 @@ function [num, den] = analogCheby1Params(Wp, Ws, Rp, Rs)
 
     Ncalc = acosh(1/k1)/acosh(1/k);
     
-    fprintf("Wp = %0.4f rad/s or %0.4f Hz, Rp = %0.2f dB,\nWs = %0.4f rad/s or %0.4f Hz, Rs = %0.2f dB\n", Wp, fp, Rp, Ws, fs, Rs);
-    fprintf("\nN = %d, cutoff = %0.4f rad/s or %0.4f Hz\n", N, Wn, fn);
+    fprintf("Wp = %0.4f rad/s, Rp = %0.2f dB,\nWs = %0.4f rad/s, Rs = %0.2f dB\n", Wp, Rp, Ws, Rs);
+    fprintf("\nN = %d, cutoff = %0.4f rad/s\n", N, Wn);
     fprintf("chi2 = %0.4f, A2 = %0.4f\nchi = %0.4f, A = %0.4f\n",chi2, A2, chi, A);
     fprintf("k = %0.4f, k1 = %0.4f\n1/k = %0.4f, 1/k1 = %0.4f\nNcalc = %0.4f\n", k, k1, 1/k, 1/k1, Ncalc);
 

@@ -25,7 +25,6 @@ ws2 = 2*pi*fs2/Fs;
 fprintf("\nStep 1: Prewarping\n");
 [Wpc1, Wsc1] = prewarp(wp1, ws1);
 [Wpc2, Wsc2] = prewarp(wp2, ws2);
-BW = Wpc2 - Wpc1
 fprintf("====================================================================");
 
 %Step 2: LP prototype specs
