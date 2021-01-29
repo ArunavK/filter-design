@@ -10,7 +10,7 @@ fs = 700;
 Rp = 3;
 Rs = 50;
 
-%normalising the frequencies
+%normalizing the frequencies
 wp = 2*pi*fp/Fs;
 ws = 2*pi*fs/Fs;
 
