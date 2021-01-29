@@ -2,8 +2,10 @@
 
 Digital filter design using MATLAB
 
-I prepared these scripts to help me with a course on Digital Signal Processing as a part of my UG degree. This GitHub repo was created only as an afterthought, to help me with version control.</br>
-The scripts have been prepared in such a way that all intermediate steps in the process of designing the filters are also calculated which are otherwise only found through hand calculations. This works brilliantly if the questions ask you to find those intermediate values, which was the case in my course.</br>
+I prepared these scripts to help me with a course on Digital Signal Processing as a part of my UG degree. This GitHub repo was created only as an afterthought, to help me with version control.
+
+The scripts have been prepared in such a way that all intermediate steps in the process of designing the filters are also calculated which are otherwise only found through hand calculations. This works brilliantly if the questions ask you to find those intermediate values, which was the case in my course.
+
 Focus is mainly on IIR Filters, specifically Butterworth and Chebyshev Type-1 filters. Some amount of FIR filter design has also been covered.
 
 ## Steps for IIR Filter Design
@@ -24,5 +26,5 @@ All remaining files were prepared to help me with the course and can be deleted 
 
 The output of all these scripts and function have been kept extremely verbose to help me in solving problems quickly.
 
-Regards
+Regards  
 _Arunabh Kashyap_
